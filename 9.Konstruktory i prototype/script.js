@@ -66,3 +66,28 @@ console.log(calc1.odejmij(3,100));
 
 
 //zadanie 3
+
+function NumberGame() {
+    this.changeNumber = function () {
+        NumberGame.prototype.changeNumberInterval = setInterval(function () {
+            NumberGame.prototype.number = Math.round(Math.random() * 10);
+        }, 1000);
+    };
+    this.checkStopExecute = function () {
+        NumberGame.prototype.checkStopExecuteInterval = setInterval(() => {
+            console.log("Check stop execute for number: " + NumberGame.prototype.number);
+
+            if (NumberGame.prototype.number <= 5) {
+                return;
+            }
+
+            clearInterval(NumberGame.prototype.changeNumberInterval);
+            clearInterval(NumberGame.prototype.checkStopExecuteInterval);
+        }, 1000);
+    };
+}
+
+const numberGame1 = new NumberGame();
+const numberGame2 = new NumberGame();
+numberGame1.changeNumber();
+numberGame2.checkStopExecute();
